@@ -31,8 +31,7 @@ SECRET_KEY = 'django-insecure-@%7#b(w$hfhj#_%sm#-@n!%18z+48ty+z_jo6abl%waq!*r&06
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -88,19 +87,11 @@ LEAFLET_CONFIG = {
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'geodjango_db',
-        'USER': 'postgres',
-        'PASSWORD': 'kathuraku91',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
-GDAL_LIBRARY_PATH = r'C:\Users\ADMIN\AppData\Local\Programs\OSGeo4W\bin\gdal312.dll'
-GEOS_LIBRARY_PATH = r'C:\Users\ADMIN\AppData\Local\Programs\OSGeo4W\bin\geos_c.dll'
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators

@@ -14,8 +14,9 @@ from pathlib import Path
 from pathlib import Path
 import os
 
-os.environ['PROJ_LIB'] = r'C:\Users\ADMIN\AppData\Local\Programs\OSGeo4W\share\proj'
-os.environ['GDAL_DATA'] = r'C:\Users\ADMIN\AppData\Local\Programs\OSGeo4W\share\gdal'
+if os.name == 'nt':  # Windows (your local machine)
+    GDAL_LIBRARY_PATH = r"C:\Users\ADMIN\AppData\Local\Programs\OSGeo4W\bin\gdal312.dll"
+    GEOS_LIBRARY_PATH = r"C:\Users\ADMIN\AppData\Local\Programs\OSGeo4W\bin\geos_c.dll"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

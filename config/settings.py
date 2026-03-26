@@ -87,12 +87,15 @@ LEAFLET_CONFIG = {
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-import dj_database_url
 DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600,
-        engine='django.contrib.gis.db.backends.postgis'
-    )
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'geodjango_db',
+        'USER': 'geodjango_db_user',
+        'PASSWORD': 'EbGqgsZI9qk8Mh35i4R6gDAVfoDQgwbP',
+        'HOST': 'dpg-d72dtdp9fqoc73b3de1g-a',
+        'PORT': '5432',
+    }
 }
 
 

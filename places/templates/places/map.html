@@ -338,6 +338,32 @@
 
         @keyframes markerDrop{from{transform:translateY(-30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
         .marker-drop { animation: markerDrop 0.4s cubic-bezier(.34,1.56,.64,1); }
+
+        @media (max-width: 600px) {
+    :root { --sidebar-w: 100vw; }
+
+    header { padding: 0 10px; gap: 8px; height: 56px; }
+
+    .brand-tagline { display: none; }
+    .brand-name { font-size: 18px; }
+
+    .header-search-wrap { max-width: none; flex: 1; min-width: 0; }
+
+    #add-btn span, #add-btn { padding: 8px 12px; font-size: 12px; }
+    .add-btn-label { display: none; }
+
+    #place-count { display: none; }
+
+    #map { top: 56px; }
+    #sidebar { top: 56px; }
+
+    #modal { width: calc(100vw - 32px); padding: 24px 20px; }
+
+    #basemap-toggle { bottom: 16px; left: 12px; }
+    #basemap-toggle.sidebar-open { left: 12px; }
+
+    .stat-value { font-size: 18px; }
+}
     </style>
 </head>
 <body>
@@ -379,7 +405,8 @@
                 <line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            Add Place
+
+            <span class="add-btn-label">Add Place</span>
         </button>
     </div>
 </header>

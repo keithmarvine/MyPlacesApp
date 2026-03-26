@@ -538,8 +538,9 @@ var searchMarker = null;   // Nominatim result marker
    BASEMAPS
 ════════════════════════════════════════ */
 var basemaps = {
-    streets: L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}.png', {
-    
+    streets: L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://stadiamaps.com">Stadia Maps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>',
+    className: 'warm-filter'
 }),
     dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '© <a href="https://carto.com">CARTO</a>',
@@ -815,7 +816,7 @@ function openDetail(p) {
         if(miniMap){miniMap.remove();miniMap=null;}
         miniMap=L.map('detail-mini-map',{zoomControl:false,attributionControl:false,dragging:false,scrollWheelZoom:false,doubleClickZoom:false,keyboard:false})
             .setView([p.lat,p.lng],10);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(miniMap);
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png').addTo(miniMap);
         L.marker([p.lat,p.lng],{icon:makeIcon()}).addTo(miniMap);
     },60);
 }
